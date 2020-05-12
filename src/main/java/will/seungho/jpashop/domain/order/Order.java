@@ -3,6 +3,7 @@ package will.seungho.jpashop.domain.order;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import will.seungho.jpashop.domain.delivery.Delivery;
 import will.seungho.jpashop.domain.member.Member;
 
 import javax.persistence.Column;
@@ -15,6 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -38,6 +40,10 @@ public class Order {
 
 	@Enumerated(EnumType.STRING)
 	private OrderStatus status;
+
+	@OneToOne
+	@JoinColumn(name = "DELIVERY_ID")
+	private Delivery delivery;
 
 	@OneToMany(mappedBy = "order")
 	private List<OrderItem> orderItems;
