@@ -1,8 +1,5 @@
 package will.seungho.jpashop;
 
-import will.seungho.jpashop.domain.member.Member;
-import will.seungho.jpashop.domain.order.Order;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -17,10 +14,6 @@ public class JpaMain {
 		transaction.begin();
 
 		try {
-			Order order = entityManager.find(Order.class, 1L);
-			Long memberId = order.getMemberId();
-			Member member = entityManager.find(Member.class, memberId);
-			// 객체지향적이지 않다!
 
 			transaction.commit();
 		} catch (Exception e) {

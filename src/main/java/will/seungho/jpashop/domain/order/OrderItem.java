@@ -3,12 +3,14 @@ package will.seungho.jpashop.domain.order;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import will.seungho.jpashop.domain.item.Item;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Getter
 @NoArgsConstructor
@@ -19,22 +21,28 @@ public class OrderItem {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "ORDER_ID")
-	private Long orderId;
+	@ManyToOne
+	@JoinColumn(name = "ORDER_ID")
+	private Order order;
 
-	@Column(name = "ITEM_ID")
-	private Long itemId;
+	@ManyToOne
+	@JoinColumn(name = "ITEM_ID")
+	private Item item;
 
 	private int orderPrice;
 
 	private int count;
 
 	@Builder
-	public OrderItem(Long orderId, Long itemId, int orderPrice, int count) {
-		this.orderId = orderId;
-		this.itemId = itemId;
+	public OrderItem(Order order, Item item, int orderPrice, int count) {
+		this.order = order;
+		this.item = item;
 		this.orderPrice = orderPrice;
 		this.count = count;
+	}
+
+	void changeOrder(Order order) {
+		this.order = order;
 	}
 
 }
