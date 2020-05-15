@@ -2,6 +2,7 @@ package will.seungho.jpashop.domain.delivery;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import will.seungho.jpashop.BaseEntity;
 import will.seungho.jpashop.domain.order.Order;
 
 import javax.persistence.Column;
@@ -14,7 +15,7 @@ import javax.persistence.OneToOne;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Delivery {
+public class Delivery extends BaseEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

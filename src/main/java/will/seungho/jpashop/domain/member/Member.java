@@ -3,6 +3,7 @@ package will.seungho.jpashop.domain.member;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import will.seungho.jpashop.BaseEntity;
 import will.seungho.jpashop.domain.order.Order;
 
 import javax.persistence.Column;
@@ -17,7 +18,7 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Member {
+public class Member extends BaseEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

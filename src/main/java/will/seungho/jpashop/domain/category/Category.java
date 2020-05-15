@@ -2,6 +2,7 @@ package will.seungho.jpashop.domain.category;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import will.seungho.jpashop.BaseEntity;
 import will.seungho.jpashop.domain.item.Item;
 
 import javax.persistence.Column;
@@ -20,7 +21,7 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Category {
+public class Category extends BaseEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

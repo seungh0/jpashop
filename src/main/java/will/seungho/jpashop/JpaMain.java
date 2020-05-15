@@ -1,5 +1,7 @@
 package will.seungho.jpashop;
 
+import will.seungho.jpashop.domain.item.Album;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -14,6 +16,20 @@ public class JpaMain {
 		transaction.begin();
 
 		try {
+			Album album = new Album();
+			album.setName("name");
+			album.setStockQuantity(1);
+			album.setPrice(1000);
+			album.setArtist("artist");
+			album.setEtc("etc");
+
+			entityManager.persist(album);
+
+			entityManager.flush();
+			entityManager.clear();
+
+			Album findAlbum = entityManager.find(Album.class, album.getId());
+			System.out.println(findAlbum.getName());
 
 			transaction.commit();
 		} catch (Exception e) {

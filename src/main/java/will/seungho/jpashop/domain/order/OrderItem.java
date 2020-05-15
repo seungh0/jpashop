@@ -3,6 +3,7 @@ package will.seungho.jpashop.domain.order;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import will.seungho.jpashop.BaseEntity;
 import will.seungho.jpashop.domain.item.Item;
 
 import javax.persistence.Column;
@@ -16,7 +17,7 @@ import javax.persistence.ManyToOne;
 @Getter
 @NoArgsConstructor
 @Entity
-public class OrderItem {
+public class OrderItem extends BaseEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
