@@ -7,6 +7,7 @@ import will.seungho.jpashop.domain.order.Order;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -30,7 +31,7 @@ public class Delivery extends BaseEntity {
 
 	private DeliveryStatus status;
 
-	@OneToOne(mappedBy = "delivery")
+	@OneToOne(mappedBy = "delivery", fetch = FetchType.LAZY)
 	private Order order;
 
 }
