@@ -3,15 +3,10 @@ package will.seungho.jpashop.domain.delivery;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import will.seungho.jpashop.BaseEntity;
+import will.seungho.jpashop.domain.common.Address;
 import will.seungho.jpashop.domain.order.Order;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Getter
 @NoArgsConstructor
@@ -23,11 +18,8 @@ public class Delivery extends BaseEntity {
 	@Column(name = "DELIVERY_ID")
 	private Long id;
 
-	private String city;
-
-	private String street;
-
-	private String zipCode;
+	@Embedded
+	private Address address;
 
 	private DeliveryStatus status;
 
